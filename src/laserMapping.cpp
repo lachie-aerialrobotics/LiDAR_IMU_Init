@@ -980,7 +980,7 @@ int main(int argc, char **argv) {
                 total_residual = 0.0;
 
                 /** closest surface search and residual computation **/
-                #ifdef MP_EN
+           //     #ifdef MP_EN
                     omp_set_num_threads(MP_PROC_NUM);
                     #pragma omp parallel for
                 for (int i = 0; i < feats_down_size; i++) {
@@ -1161,7 +1161,7 @@ int main(int argc, char **argv) {
 
             for (int i = 0; i < feats_down_size; i++) kdtree_search_time += search_time_rec[i];
 
-            #endif
+         //   #endif
             
             double t_update_end = omp_get_wtime();
 
