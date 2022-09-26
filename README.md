@@ -26,7 +26,7 @@ If our code is used in your project, please cite our paper following the bibtex 
 @article{zhu2022robust,
   title={Robust Real-time LiDAR-inertial Initialization},
   author={Zhu, Fangcheng and Ren, Yunfan and Zhang, Fu},
-  journal={arXiv preprint arXiv:2202.11006},
+  journal={arXiv preprint arXiv:2202.11006 (accepted by 2022 IROS)},
   year={2022}
 }
 ```
@@ -82,13 +82,15 @@ Clone the repository and catkin_make:
 cd ~/catkin_ws/src
 git clone https://github.com/hku-mars/LiDAR_IMU_Init.git
 cd ..
-catkin_make
+catkin_make -j
 source devel/setup.bash
 ```
 
 ## 3. Run Your Own Data
 
 **Please make sure the parameters in config/xxx.yaml are correct before running the project.**
+
+**It is highly recommended to stay still for more than 5 seconds after launch the algorithm, for accumulating dense initial map.**
 
 It is highly recommended to run LI-Init and record your own data simultaneously, because our algorithm is able to automatically detect the degree of excitation and instruct users how to give sufficient excitation (e.g. rotate or move along which direction).
 
