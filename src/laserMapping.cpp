@@ -890,7 +890,7 @@ int main(int argc, char **argv) {
     ros::Publisher pubPath = nh.advertise<nav_msgs::Path>
             ("/path", 100000);
 
-//------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------
     signal(SIGINT, SigHandle);
     ros::Rate rate(5000);
     bool status = ros::ok();
@@ -996,11 +996,12 @@ int main(int argc, char **argv) {
                     if (nearest_search_en) {
                         /** Find the closest surfaces in the map **/
                         ikdtree.Nearest_Search(point_world, NUM_MATCH_POINTS, points_near, pointSearchSqDis, 5);
-                        if (points_near.size() < NUM_MATCH_POINTS)
+                        if (points_near.size() < NUM_MATCH_POINTS) {
                             point_selected_surf[i] = false;
-                        else
+                        }
+                        else {
                             point_selected_surf[i] = !(pointSearchSqDis[NUM_MATCH_POINTS - 1] > 5);
-
+                        }
                         search_time_rec[i] = omp_get_wtime() - search_start;
                     }
 
@@ -1158,9 +1159,10 @@ int main(int argc, char **argv) {
                 if (EKF_stop_flg) break;
             }
 
-
             for (int i = 0; i < feats_down_size; i++) kdtree_search_time += search_time_rec[i];
+
             #endif
+            
             double t_update_end = omp_get_wtime();
 
             /******* Publish odometry *******/
