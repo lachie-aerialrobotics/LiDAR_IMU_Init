@@ -1,7 +1,7 @@
 <launch>
     <!-- Launch file for ouster Ouster LiDAR -->
 
-    <arg name="rviz" default="true" />
+    <arg name="rviz" default="false" />
 
     <rosparam command="load" file="$(find lidar_imu_init)/config/ouster.yaml" />
 
